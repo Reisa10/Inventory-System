@@ -63,8 +63,8 @@ def remv_item():
             decision = input(f"are you sure you want to remove {row[1].value}? (y/n): ").lower()
             if decision == "y":
                 print(f"{row[0].value} removed")
-                row[0].value = None
-                row[1].value = None
+                found = True
+                ws.delete_rows(row[0].row)
                 break
             else:
                 print("removal cancelled")
@@ -73,11 +73,6 @@ def remv_item():
         d = input("item id not found, wanna try again? y/n: ").lower()
         if d == "y":
             remv_item()
-
-
-
-
-
 
 while True:
     print("\nInventory Management System")
@@ -104,4 +99,3 @@ while True:
 
 # Save the workbook
 wb.save(filename)
-
